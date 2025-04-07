@@ -10,7 +10,7 @@
     <form action="{% url 'produit:create_produit'%}" method="POST" enctype="multipart/form-data">
         {%csrf_token %}
         <!-- verifie que les donner n'on pas ete corumpue -->
-        <label for="nom">Nom</label>
+        <label for="nom">Name</label>
         <input type="text" id="nom" name="nom">
         <br>
         <label for="prix">Prix</label>
