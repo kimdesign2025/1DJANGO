@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>creer un produit</h1>
+    <form action="{% url 'produit:create_produit'%}" method="POST" enctype="multipart/form-data">
+        {%csrf_token %}
+        <!-- verifie que les donner n'on pas ete corumpue -->
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom">
+        <br>
+        <label for="prix">Prix</label>
+        <input type="text" id="prix" name="prix">
+        <br>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" name="description"></textarea>
+        <br>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image">
+        
+        <br>
+        <button type="submit">creer</button>
+    </form>
+
+</body>
+</html>
