@@ -1,0 +1,19 @@
+<nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar p-3">
+  <ul class="nav flex-column">
+      <!-- Liens vers différentes pages -->
+      <li class="nav-item"><a class="nav-link text-white" href="{% url 'produit:home_view' %}">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="{% url 'produit:dashboard_home_page' %}">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="{% url 'produit:list_product' %}">List Product</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="{% url 'produit:create_produit' %}">Créer un Produit</a></li>
+
+      <!-- Liens pour la gestion de compte utilisateur -->
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'authentification:logout' %}">Déconnexion</a>
+        </li>
+      {% else %}
+        <li class="nav-item"><a class="nav-link text-white" href="{% url 'authentification:login' %}">Se connecter</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{% url 'authentification:register' %}">Créer un compte</a></li>
+      {% endif %}
+  </ul>
+</nav>

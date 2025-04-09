@@ -1,30 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>creer un produit</h1>
-    <form action="{% url 'produit:create_produit'%}" method="POST" enctype="multipart/form-data">
-        {%csrf_token %}
-        <!-- verifie que les donner n'on pas ete corumpue -->
-        <label for="nom">Name</label>
-        <input type="text" id="nom" name="nom">
-        <br>
-        <label for="prix">Prix</label>
-        <input type="text" id="prix" name="prix">
-        <br>
-        <label for="description">Description</label>
-        <textarea name="description" id="description" name="description"></textarea>
-        <br>
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image">
-        
-        <br>
-        <button type="submit">creer</button>
-    </form>
+{% extends 'Dashboard/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Créer un Produit</h1>
+    <form action="{% url 'produit:create_produit' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom du produit</label>
+            <input type="text" id="nom" name="nom" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="prix" class="form-label">Prix du produit (f cfa)</label>
+            <input type="text" id="prix" name="prix" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description du produit</label>
+            <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="quantite" class="form-label">Quantité en stock</label>
+            <input type="number" id="quantite" name="quantite" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image du produit</label>
+            <input type="file" name="image" id="image" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Créer le produit</button>
+    </form>
+</div>
+{% endblock %}

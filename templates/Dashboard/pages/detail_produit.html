@@ -1,0 +1,8 @@
+<h2>{{ produit.nom }}</h2>
+<p><strong>Prix :</strong> {{ produit.prix }} FCFA</p>
+<p><strong>Description :</strong> {{ produit.description }}</p>
+<p><strong>Quantité :</strong> {{ produit.quantite }}</p>
+{% if produit.image %}
+    <img src="{{ produit.image.url }}" alt="{{ produit.nom }}" width="200">
+{% endif %}
+<a href="{% url 'produit:list_product' %}" class="btn btn-secondary">Retour</a>

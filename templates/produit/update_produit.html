@@ -1,0 +1,40 @@
+{% extends 'Dashboard/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Modifier le Produit</h1>
+    <form action="{% url 'produit:product_update' produit.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom du produit</label>
+            <input type="text" id="nom" name="nom" class="form-control" value="{{ produit.nom }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="prix" class="form-label">Prix du produit (f cfa)</label>
+            <input type="text" id="prix" name="prix" class="form-control" value="{{ produit.prix }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description du produit</label>
+            <textarea name="description" id="description" class="form-control" rows="5" required>{{ produit.description }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="quantite" class="form-label">Quantité en stock</label>
+            <input type="number" id="quantite" name="quantite" class="form-control" value="{{ produit.quantite }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Changer l’image (facultatif)</label>
+            <input type="file" name="image" id="image" class="form-control">
+            {% if produit.image %}
+                <small class="form-text text-muted">Image actuelle : {{ produit.image.name }}</small>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100">Mettre à jour</button>
+    </form>
+</div>
+{% endblock %}

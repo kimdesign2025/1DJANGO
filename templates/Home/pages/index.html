@@ -1,0 +1,75 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+  <!-- Section Hero -->
+  <section class="hero bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4 text-white">Bienvenue sur notre plateforme de vente de fruits</h1>
+      <p class="lead">Explorez une large sélection de fruits frais et de qualité</p>
+      <a href="{% url 'produit:list_product' %}" class="btn btn-light btn-lg">Voir nos fruits</a>
+    </div>
+  </section>
+
+  <!-- Section Services -->
+  <section class="services py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Nos Services</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Livraison à domicile</h5>
+              <p class="card-text">Recevez vos fruits directement chez vous, rapidement et en toute sécurité.</p>
+              <a href="#" class="btn btn-primary">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sélection de qualité</h5>
+              <p class="card-text">Nous sélectionnons pour vous les meilleurs fruits, fraîcheur garantie.</p>
+              <a href="#" class="btn btn-primary">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Paiement sécurisé</h5>
+              <p class="card-text">Profitez de transactions sécurisées pour vos achats de fruits en ligne.</p>
+              <a href="#" class="btn btn-primary">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Testimonials -->
+  <section class="testimonials bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Ce que disent nos clients</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial-item text-center">
+            <p>"Les fruits sont toujours frais et délicieux. Livraison rapide, service top!"</p>
+            <h5>- Marie</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-item text-center">
+            <p>"J'adore la variété proposée, c'est parfait pour ma consommation quotidienne de fruits."</p>
+            <h5>- Thomas</h5>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-item text-center">
+            <p>"Super plateforme ! Je recommande vivement à tous les amateurs de fruits."</p>
+            <h5>- Isabelle</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
