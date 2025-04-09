@@ -1,0 +1,67 @@
+{% extends 'Dashboard/base.html'%}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Tableau de bord - Statistiques</h2>
+    <div class="row">
+        <!-- Graphique en barres -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Produits vendus</h5>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graphique en camembert -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Catégories</h5>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Graphique en barres
+    const ctxBar = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['Produit A', 'Produit B', 'Produit C'],
+            datasets: [{
+                label: 'Ventes',
+                data: [12, 19, 3],
+                backgroundColor: ['#0d6efd', '#198754', '#ffc107'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Graphique en camembert
+    const ctxPie = document.getElementById('pieChart').getContext('2d');
+    const pieChart = new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: ['Catégorie 1', 'Catégorie 2', 'Catégorie 3'],
+            datasets: [{
+                data: [30, 50, 20],
+                backgroundColor: ['#dc3545', '#0d6efd', '#20c997']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+
+{% endblock %}
